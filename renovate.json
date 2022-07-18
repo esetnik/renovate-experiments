@@ -1,0 +1,49 @@
+{
+  "extends": [
+    "config:base",
+    ":prHourlyLimitNone",
+    ":maintainLockFilesWeekly",
+    "docker:pinDigests",
+    "regexManagers:dockerfileVersions"
+  ],
+  "packageRules": [
+    {
+      "updateTypes": ["digest"],
+      "schedule": ["before 3am on Monday"],
+      "automerge": true
+    },
+    {
+      "updateTypes": ["minor", "patch", "pin", "lockFileMaintenance"],
+      "automerge": true
+    },
+    {
+      "packageNames": ["aws/aws-sdk-php"],
+      "schedule": ["every weekend"]
+    },
+    {
+      "groupName": "Cypress",
+      "groupSlug": "cypress",
+      "matchPackagePrefixes": ["cypress"]
+    },
+    {
+      "groupName": "react-pdf-viewer",
+      "matchPackagePrefixes": ["@react-pdf-viewer/"]
+    },
+    {
+      "groupName": "stripe-js",
+      "groupSlug": "stripe-js",
+      "matchPackagePrefixes": ["@stripe/"]
+    },
+    {
+      "groupName": "i18next",
+      "matchPackagePrefixes": ["i18next"]
+    }
+  ],
+  "nvm": {
+    "fileMatch": ["(^|/)\\.nvmrc$"]
+  },
+  "postUpdateOptions": ["yarnDedupeHighest"],
+  "rebaseWhen": "conflicted",
+  "branchConcurrentLimit": 0,
+  "prConcurrentLimit": 0
+}
