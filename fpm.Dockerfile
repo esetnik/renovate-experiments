@@ -1,4 +1,4 @@
-FROM php:8.1.8-fpm-bullseye@sha256:7f08aecb123611eeebe2035189cf84fb910f676e35f9adf4e21d063f2ce62c65 as fpm
+FROM php:8.1.8-fpm-bullseye@sha256:fcf8af722e5538d04b6ecceccbeb1d3f5d70af922a435056fe1aa1b5a9e8db7d as fpm
 
 # Set timezone to America/New_York
 ENV TZ=America/New_York
