@@ -40,7 +40,7 @@ RUN apt-get update && \
   locale-gen && \
   rm -r /var/lib/apt/lists/*
 
-COPY --from=composer:2.3.9@sha256:ffd9dc6a91f95a67e0f56d3649bf2dec12f55398d5caf524cba7d52bb67d4f45 /usr/bin/composer /usr/local/bin/composer
+COPY --from=composer:2.3.10@sha256:12cfcea0451fc62401f0b5b711d469efa981d258d4ef472cf78816fead6f16cf /usr/bin/composer /usr/local/bin/composer
 
 COPY deps/unixODBC-2.3.10.tar.gz .
 
